@@ -1,0 +1,37 @@
+@mixin transition($property: all, $duration: 0.2s, $timing: linear) {
+  -webkit-transition: #{$property} $duration $timing;
+  -moz-transition: #{$property} $duration $timing;
+  -ie-transition: #{$property} $duration $timing;
+  -o-transition: #{$property} $duration $timing;
+  transition: $property $duration $timing;
+}
+
+/* if you need to transition a prefixed property, use this instead */
+@mixin transition-with-prefix($property, $duration: 0.2s, $timing: linear) {
+  -webkit-transition: -webkit-#{$property} $duration $timing;
+  -moz-transition: -moz-#{$property} $duration $timing;
+  -ie-transition: -moz-#{$property} $duration $timing;
+  -o-transition: -o-#{$property} $duration $timing;
+  transition: $property $duration $timing;
+}
+
+@mixin transform($type) {
+  -webkit-transform: $type;
+  -moz-transform: $type;
+  -ms-transform: $type;
+  -o-transform: $type;
+  transform: $type;
+}
+
+@mixin animation($name, $timing: 0.5s, $delay: 0s, $count: 10) {
+  -webkit-animation: $name $timing $delay $count;
+  -moz-animation: $name $timing $delay $count;
+  -ms-animation: $name $timing $delay $count;
+  -o-animation: $name $timing $delay $count;
+}
+
+@mixin max-width($value) {
+  max-width: $value;
+  margin-left: auto;
+  margin-right: auto;
+}
