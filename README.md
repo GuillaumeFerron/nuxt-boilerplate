@@ -16,7 +16,7 @@ node.js > 8.0.0
 npm > 6.0.0 or yarn > 1.0.0
 ```
 
-### Getting Started
+### Installing
 
 Here are the steps you need to run in order to get the project up and running
 
@@ -28,12 +28,13 @@ Change the name of the project in package.json
 
 ## Usage
 
-After setting up the project (see [Getting Started](#getting-started)) :
+After setting up the project (see [Installing](#installing)) :
 
 ##### Vue
 
 * Vue pages should be included in **_pages_** folder.
-* Vue components should be included in **_components_** folder.
+* Vue components should be included in **_components_** folder. Try to keep the project tree organized by creating subfolders according to the page they are used in. 
+Ex: Components used in a homepage should be included in a **_components/home_** folder. Components used across many pages should be included in a **_components/globals_** folder.
 
 ##### CSS
 
