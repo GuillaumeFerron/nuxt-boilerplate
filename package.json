@@ -5,10 +5,10 @@
   "author": "GuillaumeFerron",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
+    "dev": "npm run precommit && nuxt",
+    "build": "npm run precommit && nuxt build",
+    "start": "npm run precommit && nuxt start",
+    "generate": "npm run precommit && nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
