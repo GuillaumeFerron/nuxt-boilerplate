@@ -12,6 +12,7 @@ module.exports = {
     'import/no-unresolved': 'off',
     'object-curly-spacing': 'off',
     'no-extra-boolean-cast': 'off',
+    'max-len': ["error", {"code": 150}],
     'vue/script-indent': ["error", 2, {"baseIndent": 1}]
   },
   "overrides": [
