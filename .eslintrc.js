@@ -11,6 +11,7 @@ module.exports = {
     'space-before-function-paren': 'off',
     'import/no-unresolved': 'off',
     'object-curly-spacing': 'off',
+    'no-extra-boolean-cast': 'off',
     'vue/script-indent': ["error", 2, {"baseIndent": 1}]
   },
   "overrides": [
