@@ -10,6 +10,21 @@ module.exports = {
     'comma-dangle': 'off',
     'space-before-function-paren': 'off',
     'import/no-unresolved': 'off',
-    'object-curly-spacing': 'off'
-  }
-}
+    'object-curly-spacing': 'off',
+    'vue/script-indent': ["error", 2, {"baseIndent": 1}]
+  },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "vue/script-indent": "off"
+      }
+    },
+    {
+      "files": ["*.vue"],
+      "rules": {
+        "indent": "off"
+      }
+    }
+  ]
+};
