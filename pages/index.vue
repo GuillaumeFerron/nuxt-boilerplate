@@ -28,6 +28,13 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  asyncData() {
+    return new Promise((resolve) => {
+      setTimeout(function() {
+        resolve({})
+      }, 1000)
+    })
   }
 }
 </script>
