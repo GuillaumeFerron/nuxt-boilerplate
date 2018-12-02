@@ -1,5 +1,6 @@
 <template>
   <section class="container">
+    <h1 class="seo-title"/>
     <div>
       <logo/>
       <h1 class="title">
@@ -28,6 +29,19 @@ import Logo from '~/components/Logo.vue'
 export default {
   components: {
     Logo
+  },
+  head() {
+    return {
+      title: this.title,
+      meta: [
+        { hid: 'description', name: 'description', content: 'A boilerplate for Nuxt projects. It includes Bootstrap | SCSS | JQuery.' }
+      ]
+    }
+  },
+  data() {
+    return {
+      title: 'Index'
+    }
   },
   asyncData() {
     return new Promise((resolve) => {
