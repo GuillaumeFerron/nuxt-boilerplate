@@ -1,4 +1,6 @@
 const pkg = require('./package')
+require('dotenv').config()
+const webpack = require('webpack')
 
 module.exports = {
   mode: 'universal',
@@ -15,9 +17,6 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ],
-    script: [
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js' }
     ]
   },
 
@@ -37,15 +36,17 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/vue-plugins.js'
+    '~/plugins/vue-plugins.js',
+    '~/plugins/vue-mixins.js',
+    { src: '~/plugins/vue-init.js', ssr: false }
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
+    '@nuxtjs/dotenv',
     ['nuxt-sass-resources-loader',
       [
         '@/assets/sass/_variables.scss',
@@ -58,6 +59,14 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    plugins: [
+      // set shortcuts as global for bootstrap
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery'
+      })
+    ],
     /*
     ** You can extend webpack config here
     */
