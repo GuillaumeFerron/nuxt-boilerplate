@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <h1 class="seo-title"/>
+    <h1 class="seo-title">{{ title }}</h1>
     <div>
       <logo/>
       <h1 class="title">
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Logo from '~/components/utils/Logo.vue'
 
 export default {
   components: {

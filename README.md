@@ -1,5 +1,5 @@
 
-# cd-nuxt-boilerplate
+# nuxt-boilerplate
 
 A boilerplate for Nuxt projects. It includes Bootstrap | SCSS | JQuery.
 
