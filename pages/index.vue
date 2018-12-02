@@ -3,12 +3,8 @@
     <h1 class="seo-title">{{ title }}</h1>
     <div>
       <logo/>
-      <h1 class="title">
-        cd-nuxt-boilerplate
-      </h1>
-      <h2 class="subtitle">
-        A boilerplate for Nuxt projects. It includes Bootstrap | SCSS.
-      </h2>
+      <h1 class="title">nuxt-boilerplate</h1>
+      <h2 class="subtitle">A boilerplate for Nuxt projects. It includes Bootstrap | SCSS.</h2>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
