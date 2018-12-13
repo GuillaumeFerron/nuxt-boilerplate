@@ -48,6 +48,9 @@ module.exports = {
     'bootstrap-vue/nuxt',
     '@nuxtjs/dotenv',
     '@nuxtjs/sitemap',
+    ['@nuxtjs/google-analytics', {
+      id: process.env['GOOGLE_ANALYTICS_TOKEN']
+    }],
     ['nuxt-sass-resources-loader',
       [
         '@/assets/sass/_variables.scss',
