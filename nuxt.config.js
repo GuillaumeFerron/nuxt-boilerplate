@@ -47,6 +47,10 @@ module.exports = {
   modules: [
     'bootstrap-vue/nuxt',
     '@nuxtjs/dotenv',
+    '@nuxtjs/sitemap',
+    ['@nuxtjs/google-analytics', {
+      id: process.env['GOOGLE_ANALYTICS_TOKEN']
+    }],
     ['nuxt-sass-resources-loader',
       [
         '@/assets/sass/_variables.scss',
@@ -54,6 +58,20 @@ module.exports = {
       ]
     ]
   ],
+
+  /*
+   ** Sitemap settings
+   */
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: process.env['APP_URL'],
+    cacheTime: 1000 * 60 * 15,
+    gzip: false,
+    generate: true,
+    routes: () => {
+      return []
+    }
+  },
 
   /*
   ** Build configuration
