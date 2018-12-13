@@ -1,3 +1,7 @@
+/**
+  Registers scss mixins rules
+ */
+
 @mixin transition($property: all, $duration: 0.2s, $timing: linear) {
   -webkit-transition: #{$property} $duration $timing;
   -moz-transition: #{$property} $duration $timing;
