@@ -60,6 +60,13 @@ module.exports = {
   ],
 
   /*
+  ** Router Settings
+  */
+  router: {
+    middleware: 'cache-management'
+  },
+
+  /*
    ** Sitemap settings
    */
   sitemap: {
