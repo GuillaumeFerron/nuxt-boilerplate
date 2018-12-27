@@ -20,10 +20,11 @@ const createStore = () => new Vuex.Store({
      * The website has been loaded once
      *
      * @param state
+     * @param value
      * @constructor
      */
-    SITE_LOADED(state) {
-      state.loaded = true
+    SITE_LOADED(state, value = true) {
+      state.loaded = value
     },
 
     /**
@@ -69,6 +70,10 @@ const createStore = () => new Vuex.Store({
       window.addEventListener('resize', () => {
         commit('CHANGE_MOBILE', $(window).width() <= 768)
       })
+
+      setTimeout(() => {
+        commit('SITE_LOADED')
+      }, 1500)
     }
   },
   modules: {

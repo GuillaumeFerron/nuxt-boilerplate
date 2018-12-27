@@ -1,6 +1,6 @@
 <template>
   <transition name="page">
-    <div v-if="loading" class="loading-page">
+    <div v-if="!loaded || loading" class="loading-page">
       <div class="loader">
         <svg class="circular" viewBox="25 25 50 50">
           <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
@@ -16,10 +16,25 @@ export default {
   data: () => ({
     loading: false
   }),
+
+  computed: {
+    loaded() {
+      return this.$store.state.loaded
+    }
+  },
+
   methods: {
+    /**
+       * The overall loading is handled by the loaded state data,
+       * but leaves the possibility to trigger manually the loading
+       */
     start() {
       this.loading = true
     },
+    /**
+       * The overall loading is handled by the loaded state data,
+       * but leaves the possibility to trigger manually the loading
+       */
     finish() {
       this.loading = false
     }
