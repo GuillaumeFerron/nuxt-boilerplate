@@ -44,8 +44,7 @@ export default {
     }
   },
   asyncData() {
-    // TODO: cache-management middleware handles the preloader,
-    //  but good practice and to be used in the future
+    // TODO: cache-management middleware handles the preloader, but good practice and to be used in the future
 
     // return new Promise((resolve) => {
     //   setTimeout(function() {

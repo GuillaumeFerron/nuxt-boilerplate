@@ -39,8 +39,6 @@ window.onNuxtReady((app) => {
   }
 
   function errorAjaxRequest(err) {
-    console.log(err)
-    // TODO find a way to remove the error request from the ajaxQueue
     app.$store.commit('ajax/POP_REQUEST')
   }
 })
