@@ -46,6 +46,7 @@ module.exports = {
   */
   modules: [
     'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     '@nuxtjs/sitemap',
     ['@nuxtjs/google-analytics', {

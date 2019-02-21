@@ -1,8 +1,17 @@
 <template>
   <div>
+    <ajax-loader/>
     <nuxt/>
   </div>
 </template>
+
+<script>
+import AjaxLoader from '../components/utils/AjaxLoader'
+
+export default {
+  components: { AjaxLoader }
+}
+</script>
 
 <style>
   html {

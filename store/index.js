@@ -2,6 +2,9 @@
 
 import Vuex from 'vuex'
 
+// MODULES
+import ajax from './ajax'
+
 /* Modules */
 
 const createStore = () => new Vuex.Store({
@@ -77,7 +80,8 @@ const createStore = () => new Vuex.Store({
     }
   },
   modules: {
-    namespaced: true
+    namespaced: true,
+    ajax: ajax
   }
 })
 
