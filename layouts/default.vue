@@ -1,8 +1,24 @@
 <template>
   <div>
-    <nuxt/>
+    <ajax-loader/>
+    <maintenance v-if="maintenanceMode === 'true'"/>
+    <nuxt v-else/>
   </div>
 </template>
+
+<script>
+import AjaxLoader from '../components/utils/AjaxLoader'
+import Maintenance from '../components/utils/Maintenance'
+
+export default {
+  components: { Maintenance, AjaxLoader },
+  data() {
+    return {
+      maintenanceMode: process.env['APP_MAINTENANCE']
+    }
+  }
+}
+</script>
 
 <style>
   html {

@@ -30,7 +30,11 @@ export default {
     return {
       title: this.title,
       meta: [
-        { hid: 'description', name: 'description', content: 'A boilerplate for Nuxt projects. It includes Bootstrap | SCSS | JQuery.' }
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'A boilerplate for Nuxt projects. It includes Bootstrap | SCSS | JQuery.'
+        }
       ]
     }
   },
@@ -40,11 +44,16 @@ export default {
     }
   },
   asyncData() {
-    return new Promise((resolve) => {
-      setTimeout(function() {
-        resolve({})
-      }, 1000)
-    })
+    // TODO: cache-management middleware handles the preloader, but good practice and to be used in the future
+
+    // return new Promise((resolve) => {
+    //   setTimeout(function() {
+    //     resolve({})
+    //   }, 1000)
+    // })
+  },
+  mounted() {
+    this.$store.commit('SITE_LOADED')
   }
 }
 </script>

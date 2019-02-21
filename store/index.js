@@ -2,6 +2,9 @@
 
 import Vuex from 'vuex'
 
+// MODULES
+import ajax from './ajax'
+
 /* Modules */
 
 const createStore = () => new Vuex.Store({
@@ -20,10 +23,11 @@ const createStore = () => new Vuex.Store({
      * The website has been loaded once
      *
      * @param state
+     * @param value
      * @constructor
      */
-    SITE_LOADED(state) {
-      state.loaded = true
+    SITE_LOADED(state, value = true) {
+      state.loaded = value
     },
 
     /**
@@ -72,7 +76,8 @@ const createStore = () => new Vuex.Store({
     }
   },
   modules: {
-    namespaced: true
+    namespaced: true,
+    ajax: ajax
   }
 })
 

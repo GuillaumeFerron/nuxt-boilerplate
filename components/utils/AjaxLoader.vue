@@ -1,43 +1,26 @@
 <template>
   <transition name="page">
-    <div v-if="!loaded || loading" class="loading-page">
+    <div v-if="ajaxLoading" class="loading-page">
       <div class="loader">
-        <svg class="circular" viewBox="25 25 50 50">
+        <svg class="circular mb-5" viewBox="25 25 50 50">
           <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
         </svg>
       </div>
+      <div class="mt-5 loader-message">{{ ajaxLoaderMessage }}</div>
     </div>
   </transition>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  name: 'Preloader',
-  data: () => ({
-    loading: false
-  }),
-
+  name: 'AjaxLoader',
   computed: {
-    loaded() {
-      return this.$store.state.loaded
-    }
-  },
-
-  methods: {
-    /**
-       * The overall loading is handled by the loaded state data,
-       * but leaves the possibility to trigger manually the loading
-       */
-    start() {
-      this.loading = true
-    },
-    /**
-       * The overall loading is handled by the loaded state data,
-       * but leaves the possibility to trigger manually the loading
-       */
-    finish() {
-      this.loading = false
-    }
+    ...mapGetters({
+      ajaxLoading: 'ajax/ajaxLoading',
+      ajaxLoaderMessage: 'ajax/ajaxLoaderMessage'
+    })
   }
 }
 </script>
@@ -51,6 +34,13 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
+
+    .loader-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      @include transform(translate(-50%, -50%));
+    }
   }
 
   .loader {
