@@ -1,10 +1,5 @@
 /* eslint import/no-extraneous-dependencies : 0 */
-
-import Vuex from 'vuex'
-
-/* Modules */
-
-const createStore = () => new Vuex.Store({
+export default {
   state: () => ({
     loaded: false,
     isMobile: false,
@@ -75,10 +70,6 @@ const createStore = () => new Vuex.Store({
         commit('SITE_LOADED')
       }, 1500)
     }
-  },
-  modules: {
-    namespaced: true
   }
-})
+}
 
-export default createStore
