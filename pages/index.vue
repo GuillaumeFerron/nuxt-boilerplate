@@ -52,6 +52,9 @@ export default {
     //     resolve({})
     //   }, 1000)
     // })
+  },
+  mounted() {
+    this.$store.commit('SITE_LOADED')
   }
 }
 </script>

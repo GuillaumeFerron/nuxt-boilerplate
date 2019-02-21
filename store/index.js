@@ -73,10 +73,6 @@ const createStore = () => new Vuex.Store({
       window.addEventListener('resize', () => {
         commit('CHANGE_MOBILE', $(window).width() <= 768)
       })
-
-      setTimeout(() => {
-        commit('SITE_LOADED')
-      }, 1500)
     }
   },
   modules: {
