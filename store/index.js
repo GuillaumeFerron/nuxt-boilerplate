@@ -10,12 +10,12 @@ import ajax from './ajax'
 const createStore = () => new Vuex.Store({
   state: () => ({
     loaded: false,
-    isMobile: false,
+    screenSize: false,
     cachedRoutes: []
   }),
   getters: {
     loaded: state => state.loaded,
-    isMobile: state => state.isMobile,
+    screenSize: state => state.screenSize,
     cachedRoutes: state => state.cachedRoutes
   },
   mutations: {
@@ -31,14 +31,14 @@ const createStore = () => new Vuex.Store({
     },
 
     /**
-     * Update the isMobile store data
+     * Update the screen size store data
      *
      * @param state
      * @param value
      * @constructor
      */
-    CHANGE_MOBILE(state, value) {
-      state.isMobile = value
+    SET_SCREEN_SIZE(state, value) {
+      state.screenSize = value
     },
 
     /**
@@ -70,8 +70,9 @@ const createStore = () => new Vuex.Store({
      * @param commit
      */
     init({ state, commit }) {
+      // Sets the screen sizes acording to bootstrap rules
       window.addEventListener('resize', () => {
-        commit('CHANGE_MOBILE', $(window).width() <= 768)
+        commit('SET_SCREEN_SIZE', $(window).width() < 768 ? 'xs' : $(window).width() < 992 ? 'sm' : $(window).width() < 1200 ? 'md' : 'lg')
       })
     }
   },
