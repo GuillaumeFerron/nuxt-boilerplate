@@ -2,6 +2,11 @@ const pkg = require('./package')
 require('dotenv').config()
 const webpack = require('webpack')
 
+function getTimeSlug() {
+  const curr = new Date()
+  return curr.getTime()
+}
+
 module.exports = {
   mode: 'universal',
 
@@ -16,7 +21,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: `/favicon.ico?v=${getTimeSlug()}` },
       {
         rel: 'stylesheet',
         href: 'https://use.fontawesome.com/releases/v5.7.2/css/all.css',
