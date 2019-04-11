@@ -32,7 +32,7 @@
     "bootstrap-vue": "^2.0.0-beta",
     "cross-env": "^5.2.0",
     "jquery": "^3.3.1",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.6.1",
     "nuxt-sass-resources-loader": "^2.0.5",
     "vue-meta": "^1.5.8"
   },
