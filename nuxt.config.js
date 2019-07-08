@@ -58,13 +58,15 @@ module.exports = {
     ['@nuxtjs/google-analytics', {
       id: process.env['GOOGLE_ANALYTICS_TOKEN']
     }],
-    ['nuxt-sass-resources-loader',
-      [
-        '@/assets/sass/_variables.scss',
-        '@/assets/sass/_mixins.scss'
-      ]
-    ]
+    '@nuxtjs/style-resources'
   ],
+
+  styleResources: {
+    sass: [
+      '@/assets/sass/_variables.scss',
+      '@/assets/sass/_mixins.scss'
+    ]
+  },
 
   /*
   ** Router Settings
