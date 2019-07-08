@@ -50,15 +50,21 @@ module.exports = {
   /*
   ** Nuxt.js modules
   */
-  modules: [
+  modules: !process.env['GOOGLE_ANALYTICS_TOKEN'] ? [
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     '@nuxtjs/sitemap',
+    '@nuxtjs/style-resources'
+  ] : [
+    'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
+    '@nuxtjs/dotenv',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/style-resources',
     ['@nuxtjs/google-analytics', {
       id: process.env['GOOGLE_ANALYTICS_TOKEN']
-    }],
-    '@nuxtjs/style-resources'
+    }]
   ],
 
   styleResources: {
