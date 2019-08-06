@@ -3,15 +3,15 @@
     <h1 class="seo-title">{{ title }}</h1>
     <div>
       <logo/>
-      <h1 class="title">nuxt-boilerplate</h1>
+      <h1 class="title">{{ pkg.name }}</h1>
       <h2 class="subtitle">A CandyLab product.</h2>
       <div class="links">
         <a
-          href="https://nuxtjs.org/"
+          href="https://candydigital.co"
           target="_blank"
-          class="button--green">Documentation</a>
+          class="button--green">Candy Digital</a>
         <a
-          href="https://github.com/nuxt/nuxt.js"
+          href="https://github.com/GuillaumeFerron/nuxt-boilerplate"
           target="_blank"
           class="button--grey">GitHub</a>
       </div>
@@ -21,6 +21,7 @@
 
 <script>
 import Logo from '~/components/utils/Logo.vue'
+const pkg = require('../package')
 
 export default {
   components: {
@@ -40,7 +41,8 @@ export default {
   },
   data() {
     return {
-      title: 'Index'
+      title: 'Index',
+      pkg: pkg
     }
   },
   asyncData() {
