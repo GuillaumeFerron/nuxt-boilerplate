@@ -10,7 +10,7 @@
 export default {
   name: 'Maintenance',
   mounted() {
-    this.$store.commit('SITE_LOADED')
+    this.$store.commit('base/SITE_LOADED')
   }
 }
 </script>

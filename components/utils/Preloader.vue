@@ -19,7 +19,7 @@ export default {
 
   computed: {
     loaded() {
-      return this.$store.state.loaded
+      return this.$store.state.base.loaded
     }
   },
 

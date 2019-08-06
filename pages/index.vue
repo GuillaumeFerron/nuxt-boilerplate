@@ -4,7 +4,7 @@
     <div>
       <logo/>
       <h1 class="title">nuxt-boilerplate</h1>
-      <h2 class="subtitle">A boilerplate for Nuxt projects. It includes Bootstrap | SCSS.</h2>
+      <h2 class="subtitle">A CandyLab product.</h2>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
@@ -53,7 +53,7 @@ export default {
     // })
   },
   mounted() {
-    this.$store.commit('SITE_LOADED')
+    this.$store.commit('base/SITE_LOADED')
   }
 }
 </script>

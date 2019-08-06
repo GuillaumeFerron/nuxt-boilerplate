@@ -4,7 +4,7 @@
 
 window.onNuxtReady((app) => {
   // INIT VUEX
-  app.$store.dispatch('init')
+  app.$store.dispatch('base/init')
 
   // BUILD THE INTERCEPTORS
   app.$axios.onRequest((config) => {
