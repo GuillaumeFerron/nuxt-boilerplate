@@ -50,22 +50,21 @@ module.exports = {
   /*
   ** Nuxt.js modules
   */
-  modules: !process.env['GOOGLE_ANALYTICS_TOKEN'] ? [
-    'bootstrap-vue/nuxt',
-    '@nuxtjs/axios',
-    '@nuxtjs/dotenv',
-    '@nuxtjs/sitemap',
-    '@nuxtjs/style-resources'
-  ] : [
+  modules: [
     'bootstrap-vue/nuxt',
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     '@nuxtjs/sitemap',
     '@nuxtjs/style-resources',
-    ['@nuxtjs/google-analytics', {
+    ...process.env['GOOGLE_ANALYTICS_TOKEN'] ? [['@nuxtjs/google-analytics', {
       id: process.env['GOOGLE_ANALYTICS_TOKEN']
-    }]
-  ],
+    }]] : [],
+    ...process.env['FACEBOOK_PIXEL'] ? [['nuxt-facebook-pixel-module', {
+      track: 'PageView',
+      pixelId: process.env['FACEBOOK_PIXEL'],
+      disabled: false
+    }]] : []
+  ]
 
   styleResources: {
     sass: [
