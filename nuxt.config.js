@@ -42,7 +42,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/vue-plugins.js',
+    '~/plugins/vue-plugins-ssr.js',
+    { src: '~/plugins/vue-plugins-csr.js', ssr: false },
     '~/plugins/vue-mixins.js',
     { src: '~/plugins/vue-init.js', ssr: false }
   ],
@@ -64,7 +65,7 @@ module.exports = {
       pixelId: process.env['FACEBOOK_PIXEL'],
       disabled: false
     }]] : []
-  ]
+  ],
 
   styleResources: {
     sass: [
