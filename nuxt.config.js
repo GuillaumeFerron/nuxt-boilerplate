@@ -5,6 +5,10 @@ const webpack = require('webpack')
 module.exports = {
   mode: 'universal',
 
+  server: {
+    port: 3000
+  },
+
   /*
   ** Headers of the page
   */
