@@ -3,7 +3,8 @@ export const state = () => ({
   loaded: false,
   cachedRoutes: [],
   screenSize: false,
-  browser: ''
+  browser: '',
+  defaultLoaderTimeout: 1000
 })
 
 export const getters = {
@@ -20,8 +21,23 @@ export const mutations = {
    * @param value
    * @constructor
    */
-  SITE_LOADED(state, value = true) {
-    state.loaded = value
+  SITE_LOADED(state) {
+    state.loaded = true
+  },
+  /**
+   * The website is loading
+   *
+   * @param state
+   * @param value
+   * @constructor
+   */
+  SITE_LOADING(state, timeout = null) {
+    state.loaded = false
+    if(timeout) {
+      setTimeout(() => {
+        state.loaded = true
+      }, timeout)
+    }
   },
 
   /**

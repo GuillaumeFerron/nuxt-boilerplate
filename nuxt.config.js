@@ -52,6 +52,8 @@ module.exports = {
     { src: '~/plugins/vue-init.js', ssr: false }
   ],
 
+  serverMiddleware: ['~/api'],
+
   /*
   ** Nuxt.js modules
   */
