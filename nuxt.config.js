@@ -2,9 +2,12 @@ const pkg = require('./package')
 require('dotenv').config()
 const webpack = require('webpack')
 
-module.exports = {
-  mode: 'universal',
+function getTimeSlug() {
+  const curr = new Date()
+  return curr.getTime()
+}
 
+module.exports = {
   server: {
     port: 3000
   },
@@ -20,12 +23,13 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/x-icon', href: `/favicon.ico?v=${getTimeSlug()}` },
       {
         rel: 'stylesheet',
         href: 'https://use.fontawesome.com/releases/v5.7.2/css/all.css',
         integrity: 'sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr',
-        crossorigin: 'anonymous'
+        crossorigin: 'anonymous',
+        defer: true
       }
     ]
   },
