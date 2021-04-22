@@ -8,7 +8,9 @@ function getTimeSlug() {
 }
 
 module.exports = {
-  mode: 'universal',
+  server: {
+    port: 3000
+  },
 
   /*
   ** Headers of the page
@@ -48,10 +50,13 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/vue-plugins.js',
+    '~/plugins/vue-plugins-ssr.js',
+    { src: '~/plugins/vue-plugins-csr.js', ssr: false },
     '~/plugins/vue-mixins.js',
     { src: '~/plugins/vue-init.js', ssr: false }
   ],
+
+  // serverMiddleware: ['~/api'],
 
   /*
   ** Nuxt.js modules
@@ -61,16 +66,23 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/dotenv',
     '@nuxtjs/sitemap',
-    ['@nuxtjs/google-analytics', {
+    '@nuxtjs/style-resources',
+    ...process.env['GOOGLE_ANALYTICS_TOKEN'] ? [['@nuxtjs/google-analytics', {
       id: process.env['GOOGLE_ANALYTICS_TOKEN']
-    }],
-    ['nuxt-sass-resources-loader',
-      [
-        '@/assets/sass/_variables.scss',
-        '@/assets/sass/_mixins.scss'
-      ]
-    ]
+    }]] : [],
+    ...process.env['FACEBOOK_PIXEL'] ? [['nuxt-facebook-pixel-module', {
+      track: 'PageView',
+      pixelId: process.env['FACEBOOK_PIXEL'],
+      disabled: false
+    }]] : []
   ],
+
+  styleResources: {
+    sass: [
+      '@/assets/sass/_variables.scss',
+      '@/assets/sass/_mixins.scss'
+    ]
+  },
 
   /*
   ** Router Settings
